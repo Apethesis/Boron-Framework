@@ -2,7 +2,6 @@ require('dotenv').config();
 const { Client, Events, GatewayIntentBits, Collection, MessageFlags } = require('discord.js');
 const { checkHas } = require("./lib/roles");
 const { checkCommand } = require("./lib/typechecking");
-const express = require('express');
 const fs = require('fs');
 const path = require('node:path');
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
@@ -14,7 +13,6 @@ const internalData = {
     commands: new Collection(),
     slashCommands: new Collection(),
     aliases: new Collection(),
-    dataCache: {},
     lib: {},
     localData: [ [], [] ], // 0 : read-only, 1 : read-write, { fileLocation: '', data: {} }
     registeredEvents: [], // collection of Events in loaded order
